@@ -1,3 +1,27 @@
-<section class="modal-application">
- 
-</section>
+<div class="modal-app-overlay is-open">
+  <div class="modal-app">
+    <button class="modal-app-close">
+      <svg class="app-close-icon" width="24" height="24">
+        <use href="../img/icons.svg#close"></use>
+      </svg>
+    </button>
+
+    <p class="modal-app-title">Залишіть заявку на знайомство</p>
+
+    <form class="modal-app-form" method="post">
+      <div class="app-form-group">
+        <label class="app-form-label" for="name"> Ім’я* </label>
+        <input class="app-form-input" type="text" name="" id="name" />
+      </div>
+      <div class="app-form-group">
+        <label class="app-form-label" for="phone"> Телефон* </label>
+        <input class="app-form-input" type="text" name="" id="phone" />
+      </div>
+      <div class="app-form-group">
+        <label class="app-form-label" for="comment"> Коментар </label>
+        <textarea class="app-form-textarea" name="" id="comment"></textarea>
+      </div>
+      <button class="app-form-btn" type="submit">Надіслати</button>
+    </form>
+  </div>
+</div>
