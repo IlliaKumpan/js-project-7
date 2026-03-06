@@ -106,7 +106,9 @@
   }
 
    .hero-inside{
-    padding: 128px 64px 413px;
+    padding-top: 128px;
+     paddding-right: 64px;
+     margin-bottom: 413px;
   }
 
   .hero-text {
