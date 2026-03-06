@@ -11,6 +11,14 @@ const BASE_URL = `https://paw-hut.b.goit.study`;
 const ANDROID_URL = `/api/feedbacks`;
 const feedbacks = document.querySelector('.feedbacks');
 const buttonStories = document.querySelectorAll(".stories-btn");
+const loader = document.querySelector('.loader');
+
+function showLoader() {
+  loader.classList.remove('loader-hidden');
+}
+function hideLoader() {
+  loader.classList.add('loader-hidden');
+}
 
 const storiesSwiper = new Swiper('.stories-swiper', {
   modules: [Navigation, Pagination],
@@ -41,9 +49,9 @@ const storiesSwiper = new Swiper('.stories-swiper', {
       slidesPerView: 2,
       },
     },
-    // watchOverflow: false,
 });
 
+showLoader();
 fetch(`${BASE_URL}${ANDROID_URL}`)
     .then(response => response.json())
     .then(data => {
@@ -52,7 +60,10 @@ fetch(`${BASE_URL}${ANDROID_URL}`)
     storiesSwiper.pagination.render();
 storiesSwiper.pagination.update();
 })
-  .catch(error => console.error('Error fetching data:', error));
+  .catch(error => console.error('Error fetching data:', error))
+  .finally(() => {
+    hideLoader();
+  });
 
   function renderStars(rate) {
   const rating = Math.round(rate * 2) / 2;
@@ -67,12 +78,25 @@ storiesSwiper.pagination.update();
     </svg>
   `.repeat(full);
 
-  const halfStar = half ? `
-    <svg class="star star-half">
-      <use href="../img/icons.svg#star-half"></use>
-    </svg>
-  ` : '';
-
+  // const halfStar = half ? `
+  //   <svg class="star star-half">
+  //     <use href="../img/icons.svg#star-half"></use>
+  //   </svg>
+  // ` : '';
+const halfStar = half
+    ? `
+      <span class="star-half" aria-hidden="true">
+        <svg class="star star-outline">
+          <use href="../img/icons.svg#star-outline"></use>
+        </svg>
+        <span class="star-half-fill">
+          <svg class="star star-filled">
+            <use href="../img/icons.svg#star-filled"></use>
+          </svg>
+        </span>
+      </span>
+    `
+    : '';
   const emptyStars = `
     <svg class="star star-outline">
       <use href="../img/icons.svg#star-outline"></use>
@@ -83,21 +107,21 @@ storiesSwiper.pagination.update();
 }
   
 function createFeedbackCard(items) {
-    const marcupFeedback = items.map(review => `
-       <div class="swiper-slide feedback-card">
-             <div class="rating">
-        <div class="stars">${renderStars(review.rate)}</div>
+  const marcupFeedback = items.map(review => `
+    <div class="swiper-slide">
+      <div class="feedback-card">
+        <div class="rating">
+          <div class="stars">${renderStars(review.rate)}</div>
+        </div>
+        <p class="feedback-description">${review.description}</p>
+        <p class="feedback-author">${review.author}</p>
       </div>
-            <p class="feedback-description">${review.description}</p>
-            <p class="feedback-author">${review.author}</p>
-            </div> `).join('');
-    feedbacks.innerHTML = marcupFeedback;
-}
+    </div>
+  `).join('');
 
+  feedbacks.innerHTML = marcupFeedback;
+}
 
 buttonStories.forEach(btn => {
   btn.addEventListener("click", () => btn.blur());
 })
-console.log(document.querySelector('#stories .stories-navigation .swiper-pagination'))
-
-console.log(storiesSwiper.pagination)

@@ -2,12 +2,6 @@
    padding: 64px 0; 
    background-color: #F6F4F1;  
 }
-@media only screen and (min-width: 1440px) {
-    .stories {
-        padding: 80px 0;
-    }
-    
-}
 .title-stories {
     font-family: Open Sans;
     font-size: 36px;
@@ -18,11 +12,6 @@
     margin-bottom: 24px;
     letter-spacing: -0.01em;
 }
-@media only screen and (min-width: 1440px) {
-    .title-stories {
-        font-size: 48px;
-    }
-}
 .subtitle-stories {
     font-size: 16px;
     font-weight: 400;
@@ -32,13 +21,18 @@
     margin-bottom: 40px;
 }
 @media only screen and (min-width: 1440px) {
-    .subtitle-stories  {
-        font-size: 18px;
-    }
+.subtitle-stories  {
+    font-size: 18px;
 }
-.feedback-card{
-    margin-bottom: 40px;
+.title-stories {
+    font-size: 48px;
 }
+    
+.stories {
+        padding: 80px 0;
+}
+}
+
  /* #region rating */
 .rating {
     display: flex;
@@ -67,23 +61,42 @@
 .star-filled {
     fill: #02060A;
 }
-
-/* .star-half {
-    /* fill: #02060A; 
-}  */
-/* .star-half {
-    fill: none !important;
-    stroke: currentColor;
-} */
 .star-outline {
     fill: none;
     stroke: #02060A;
     stroke-width: 2px;
 }
+.star-half {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+}
+
+.star-half .star {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.star-half-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
 
  /* #endregion rating */
 
 
+.feedback-card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
 .feedback-description {
     font-size: 18px;
     line-height: 1.5;
@@ -94,8 +107,7 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 1.5;
-margin-bottom: 40px;
-margin-top: auto;
+    margin: 0;
 }
 @media only screen and (min-width:1440px) {
     .feedback-author {
@@ -142,41 +154,39 @@ pointer-events: none;
 
 
 /* #region SWIPER */
+.stories-pagination-clip {
+    width: 144px;
+    overflow: hidden;
+}
+ .stories-swiper .swiper-wrapper {
+     align-items: flex-start;
+ }
+.swiper-slide {
+    height: auto !important;
+}
+.stories-swiper {
+margin-bottom: 40px;
+height: auto;
+}
 .stories-navigation {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+#stories .swiper-pagination {
+    position: relative;
+    bottom: auto;
+    left: 0;
+    width: auto;
+    text-align: left;
+}
 
 .stories-container-btn {
     display: flex;
     gap: 16px;
 }
-
-.stories-navigation .swiper-pagination {
-    position: relative;
-    left: 0;
-    transform: none;
-    /* display: flex; */
-    justify-content: flex-start;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-
-    gap: 8px;
-    width: auto;
-    overflow: hidden;
-    flex-wrap: nowrap;
-
-
-}
-
-.swiper-pagination-bullet {
-    background: #C3B49D;
-    opacity: 1;
-}
-
+/* #region BULLETS */ 
 .stories-navigation .swiper-pagination-bullet {
     flex: 0 0 auto;
     background: #C3B49D;
@@ -186,25 +196,16 @@ pointer-events: none;
     opacity: 1;
     cursor: pointer;
 }
-
 @media only screen and (min-width: 768px) {
     .stories-navigation .swiper-pagination-bullet {
         width: 6px;
         height: 6px;
     }
 }
-
 .swiper-pagination-bullet-active {
     background: #02060A !important;
 
 }
-
-#stories .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    width: 8px;
-    height: 8px;
-    text-align: center;
-}
-
 #stories .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
     left: 0;
     transform: translateX(-25%);
@@ -213,19 +214,28 @@ pointer-events: none;
     #stories .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
         transform: translateX(-8%);
     }
-    
 }
+/* #endregion BULLETS */
 
-#stories .swiper-pagination {
-    position: relative;
-    bottom: auto;
-    left: 0;
-    width: auto;
-    text-align: left;
-}
 /* #endregion SWIPER */
 
-.stories-pagination-clip {
-    width: 144px;
-    overflow: hidden;
+/* LOADER */
+
+.loader {
+width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid;
+    border-color: #000 #0000;
+    animation: l1 1s infinite;
+    margin: 40px auto;
+}
+
+@keyframes l1 {
+    to {
+        transform: rotate(.5turn)
+    }
+}
+.loader-hidden {
+    display: none;
 }
