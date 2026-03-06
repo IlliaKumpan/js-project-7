@@ -22,7 +22,7 @@
     <script type="module" crossorigin src="/js-project-7/index.js"></script>
     <link rel="modulepreload" crossorigin href="/js-project-7/assets/vendor-Dr8HO-W2.js">
     <link rel="stylesheet" crossorigin href="/js-project-7/assets/vendor-CnhZ3iOE.css">
-    <link rel="stylesheet" crossorigin href="/js-project-7/assets/index-BI7b9wXF.css">
+    <link rel="stylesheet" crossorigin href="/js-project-7/assets/index-BzBn1qjc.css">
   </head>
   <body>
     <header class="header">
@@ -556,9 +556,55 @@
   </div>
 </div>
 
-      <section class="modal-application">
- 
-</section>
+      <div class="order-modal-overlay">
+  <div class="order-modal" role="dialog" aria-labelledby="order-title">
+    <button class="order-close-btn" type="button">
+      <svg class="order-close-icon" width="24" height="24">
+        <use href="../img/icons.svg#close"></use>
+      </svg>
+    </button>
+
+    <h2 class="order-title">Залишіть заявку на знайомство</h2>
+
+    <form class="order-form" method="post">
+      <div class="order-form-group">
+        <label class="order-form-label" for="name"> Ім’я* </label>
+        <input
+          class="order-form-input"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Андрій"
+          required
+        />
+        <span class="order-input-error">Введіть Ваше ім’я</span>
+      </div>
+      <div class="order-form-group">
+        <label class="order-form-label" for="phone"> Телефон* </label>
+        <input
+          class="order-form-input"
+          type="tel"
+          name="phone"
+          id="phone"
+          placeholder="380955559922"
+          pattern="^380\d{9}$"
+          required
+        />
+        <span class="order-input-error">Введіть дійсний номер телефону</span>
+      </div>
+      <div class="order-form-group">
+        <label class="order-form-label" for="comment"> Коментар </label>
+        <textarea
+          class="order-form-textarea"
+          name="comment"
+          id="comment"
+          placeholder="Напишіть ваш коментар"
+        ></textarea>
+      </div>
+      <button class="order-form-submit" type="submit">Надіслати</button>
+    </form>
+  </div>
+</div>
 
     </main>
 
@@ -597,6 +643,58 @@
         <p class="footer-policy">&copy; 2025 Хатинка лапок. Всі права захищені.</p>
     </div>
 </footer>
+
+
+    <!-- Order modal window -->
+    <div class="order-modal-overlay">
+  <div class="order-modal" role="dialog" aria-labelledby="order-title">
+    <button class="order-close-btn" type="button">
+      <svg class="order-close-icon" width="24" height="24">
+        <use href="../img/icons.svg#close"></use>
+      </svg>
+    </button>
+
+    <h2 class="order-title">Залишіть заявку на знайомство</h2>
+
+    <form class="order-form" method="post">
+      <div class="order-form-group">
+        <label class="order-form-label" for="name"> Ім’я* </label>
+        <input
+          class="order-form-input"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Андрій"
+          required
+        />
+        <span class="order-input-error">Введіть Ваше ім’я</span>
+      </div>
+      <div class="order-form-group">
+        <label class="order-form-label" for="phone"> Телефон* </label>
+        <input
+          class="order-form-input"
+          type="tel"
+          name="phone"
+          id="phone"
+          placeholder="380955559922"
+          pattern="^380\d{9}$"
+          required
+        />
+        <span class="order-input-error">Введіть дійсний номер телефону</span>
+      </div>
+      <div class="order-form-group">
+        <label class="order-form-label" for="comment"> Коментар </label>
+        <textarea
+          class="order-form-textarea"
+          name="comment"
+          id="comment"
+          placeholder="Напишіть ваш коментар"
+        ></textarea>
+      </div>
+      <button class="order-form-submit" type="submit">Надіслати</button>
+    </form>
+  </div>
+</div>
 
 
   </body>
