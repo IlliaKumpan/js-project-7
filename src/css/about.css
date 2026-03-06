@@ -1,6 +1,5 @@
 /*! base styles */
 /* Styles for Mobile devices */
-
 /*? section */
 .about {
     /* position: relative; */
@@ -16,10 +15,7 @@
     }
 }
 
-/* .about-us-container {
-    position: relative;
-    overflow: visible;
-} */
+
 
 /* #region Section's H2 - title */
 /*? h2 */
@@ -53,21 +49,18 @@
     height: 100%;
     margin-top: 40px;
     padding-bottom: 88px;
-    /* overflow: visible; */
-    /*outline: 1px solid red;*/
+    outline: 1px solid red;
     /* position: relative; */
 }
 
-/* .swiper-wrapper {
-    overflow: hidden;
-} */
 
 .about-us-container .swiper-slide {
     /* ---mine--- */
     position: relative;
     overflow: hidden;
     max-width: 335px;
-    height: 402px;
+    /* height: 402px; */
+    height: auto;
     /* ---------- */
     display: flex;
     justify-content: center;

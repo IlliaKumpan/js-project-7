@@ -8,7 +8,7 @@ h1,h2,h3,h4,h5,h6 {
     font-family: 'Open Sans', sans-serif;
 }
 
-.container {
+.pets .container {
     width: 100%;
     max-width: 1312px;
     margin: auto;
@@ -252,7 +252,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Планшет (Tablet) - 768px */
 @media screen and (max-width: 1311px) {
-    .container {
+    .pets .container {
         max-width: 768px;
         padding-left: 32px;
         padding-right: 32px;
@@ -299,7 +299,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Мобільний (Mobile) - 375px */
 @media screen and (max-width: 480px) {
-    .container {
+    .pets .container {
         max-width: 375px;
         padding-left: 20px;
         padding-right: 20px;
