@@ -8,13 +8,7 @@ h1,h2,h3,h4,h5,h6 {
     font-family: "Open Sans", sans-serif;
 }
 
-.pets .container {
-    width: 100%;
-    max-width: 1312px;
-    margin: auto;
-}
-
-.our-pets__list {
+.pets-container {
     margin-top: 80px;
 }
 
@@ -22,7 +16,6 @@ h1,h2,h3,h4,h5,h6 {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: auto;
     align-items: center;
 }
 
@@ -252,10 +245,8 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Планшет (Tablet) - 768px */
 @media screen and (max-width: 1311px) {
-    .pets .container {
-        max-width: 768px;
-        padding-left: 32px;
-        padding-right: 32px;
+    .pets-container {
+        margin-top: 64px;
     }
 
     .our-pets__types-list {
@@ -299,11 +290,6 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Мобільний (Mobile) - 375px */
 @media screen and (max-width: 480px) {
-    .pets .container {
-        max-width: 375px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
 
     .our-pets__types-list {
         gap: 8px 8px;

@@ -1,11 +1,11 @@
 import axios from "axios";
 
-
 const BASE_URL = 'https://paw-hut.b.goit.study/api';
 
 
 let page = 1;
 let currentCategoryId = ''; 
+let allAnimals = [];
 
 const petTypeList = document.querySelector('.our-pets__types-list');
 const loadMoreBtn = document.querySelector('.pet-list__btn');
@@ -89,18 +89,14 @@ async function loadAnimals(id = '', currentPage = 1) {
     try {
         const { data } = await axios.get(`${BASE_URL}/animals`, { params });
         const animals = data.animals;
-
         if (currentPage === 1) {
             petsList.innerHTML = ''; 
+            allAnimals = animals; 
+        } else {
+            allAnimals = [...allAnimals, ...animals]; 
         }
 
         renderCards(animals);
-
-
-        if (currentPage > 1) {
-            setTimeout(scrollToNewCards, 100);
-        }
-
 
         if (animals.length < limit || animals.length === 0) {
             loadMoreBtn.style.display = 'none';
@@ -108,20 +104,13 @@ async function loadAnimals(id = '', currentPage = 1) {
             loadMoreBtn.style.display = 'block';
         }
 
-        if (animals.length === 0 && currentPage === 1) {
-            iziToast.info({ message: 'No animals found in this category' });
-        }
-
     } catch (error) {
-        iziToast.error({
-            title: 'Request Error',
-            message: 'Something went wrong while fetching animals',
-            position: 'topRight'
-        });
+        iziToast.error({ title: 'Error', message: 'Failed to load animals' });
     } finally {
         setTimeout(hideLoader, 300);
     }
 }
+
 
 
 function renderCards(animals) {
@@ -175,3 +164,18 @@ loadMoreBtn.addEventListener('click', () => {
 });
 
 init();
+
+import { openPetModal } from './modal-pet.js';
+
+petsList.addEventListener('click', (e) => { 
+    if (!e.target.classList.contains('pet-card__btn')) return;
+
+    const card = e.target.closest('.pet-card');
+    const animalId = card.dataset.id;
+
+    const selectedPetData = allAnimals.find(animal => animal._id === animalId);
+
+    if (selectedPetData) {
+        openPetModal(selectedPetData);
+    }
+});

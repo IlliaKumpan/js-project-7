@@ -8,7 +8,7 @@ const orderBackdrop = document.querySelector('.order-modal-overlay');
 const orderCloseBtn = document.querySelector('.order-close-btn');
 const orderSubmitBtn = document.querySelector('.order-submit-btn');
 
-export default function openOrderModal(animalId) {
+export default function openOrderModal(animalId) {  
   // Add animal id to order form data set
   orderForm.dataset.animalId = animalId;
 
