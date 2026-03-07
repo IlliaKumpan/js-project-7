@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/dist/basicLightbox.min.css';
+import showToast from './notification';
 
 const orderForm = document.querySelector('.order-form');
 const orderBackdrop = document.querySelector('.order-modal-overlay');
@@ -90,40 +89,17 @@ async function onOrderSubmit(event) {
 
     closeOrderModal();
 
-    showNotification(createSuccessTemplate(orderData), 5000);
+    showToast(createSuccessTemplate(orderData), 5000);
   } catch (error) {
-    showNotification(createErrorTemplate(error.message));
+    showToast(createErrorTemplate(error.message), 3000);
   } finally {
     orderSubmitBtn.disabled = false;
   }
 }
 
-function showNotification(message) {
-  const instance = basicLightbox.create(
-    `
-    <div class="order-toast">
-    <button class="order-close-btn" type="button">
-      <svg class="order-close-icon" width="24" height="24">
-        <use href="../img/icons.svg#close"></use>
-      </svg>
-    </button>
-      ${message}  
-    </div>
-  `,
-    {
-      onShow: instance => {
-        instance.element().querySelector('button').onclick = instance.close;
-      },
-    }
-  );
-
-  instance.show();
-}
-
 function createSuccessTemplate(order) {
   return `
-
-      <h3 class="order-toast-title">Замовлення створено ✅</h3>
+      <h3 class="toast-title">Замовлення створено ✅</h3>
 
       <p><strong>№ замовлення:</strong> ${order.orderNum}</p>
       <p><strong>Клієнт:</strong> ${order.name}</p>
@@ -135,7 +111,7 @@ function createSuccessTemplate(order) {
 
 function createErrorTemplate(message) {
   return ` 
-      <h3 class="order-toast-title">Сталася помилка ❌</h3>    
+      <h3 class="toast-title">Сталася помилка ❌</h3>    
       <p><strong>${message}</strong></p>
       <p><small>Спробуйте ще раз або перевірте введені дані.</small></p>
   `;
