@@ -19,22 +19,22 @@ export function initAboutUsSwiper() {
             onlyInViewport: true,
         },
         pagination: {
-            el: ".swiper-pagination",
+            el: "#about .swiper-pagination",
             type: 'bullets',
             dynamicBullets: true,
             clickable: true,
         },
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: "#about .swiper-button-next",
+            prevEl: "#about .swiper-button-prev",
         },
         breakpoints: {
-        768: {
-          pagination: {
-            dynamicBullets: false, // Выключаем динамические точки
-          },
+            768: {
+                pagination: {
+                    dynamicBullets: false,
+                },
+            },
         },
-      },
     });
   }
 }
