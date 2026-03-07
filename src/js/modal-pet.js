@@ -1,3 +1,5 @@
+import { openOrderModal } from './modal-application.js';
+
 const backdrop = document.querySelector('.modal-pet-backdrop');
 const modalImage = document.querySelector('.modal-pet-image');
 const modalSpecies = document.querySelector('.modal-pet-species');
@@ -55,7 +57,6 @@ function onAdoptClick() {
 
   const animalId = currentAnimalId;
     closePetModal();
-    //import { openOrderModal } from './modal-application.js';
     openOrderModal(animalId);
   
 }

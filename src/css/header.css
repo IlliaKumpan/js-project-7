@@ -42,9 +42,10 @@ html {
     line-height: 0;
 }
 
-.header-logo-icon {
-    /* width: 100%; */
+/*.header-logo-icon {
+     width: 100%; 
 }
+*/
 
 .burger-btn {
     width: 48px;
@@ -65,7 +66,7 @@ html {
     transform: scale(1.1);
 }*/
 
-.burger-btn-icon {}
+
 
 .header-nav {
     display: none;
@@ -90,7 +91,7 @@ html {
 
 
 
-.nav-item {}
+
 
 /* Hover  */
 .nav-item a {
@@ -209,7 +210,7 @@ html {
     }
 }
 
-.mobile-nav-item {}
+
 
 /* .mobile button */
 .mobile-nav-button {
