@@ -7,17 +7,7 @@ h6,
 p {
   margin: 0;
 }
-@font-face {
-    font-display: swap;
-    font-family: "IBM Plex Sans";
-    src: url('./IBMPlexSans-VariableFont.ttf') format('truetype');
-}
 
-@font-face {
-    font-display: swap;
-    font-family: "Open Sans";
-    src: url('./OpenSans-VariableFont.ttf') format('truetype');
-}
 p:last-child {
   margin-bottom: 0;
 }
