@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="/js-project-7/index.js"></script>
     <link rel="modulepreload" crossorigin href="/js-project-7/assets/vendor-DY2JEt63.js">
     <link rel="stylesheet" crossorigin href="/js-project-7/assets/vendor-q2RdeXcg.css">
-    <link rel="stylesheet" crossorigin href="/js-project-7/assets/index-ByAYCbTj.css">
+    <link rel="stylesheet" crossorigin href="/js-project-7/assets/index-DlfcTbGF.css">
   </head>
   <body>
     <header class="header">
@@ -102,40 +102,59 @@
 </section>
 
       <section class="pets" id="pets-list">
+  <div class="loader-backdrop is-hidden">
+    <span class="loader"></span>
+  </div>
 
-     <div class="loader-backdrop is-hidden">
-      <span class="loader"></span>
-    </div>
-
-<div class="pets-container container">
-
-    <div class="our-pets__discription">
-        <h2 class="our-pets__title">Наші хвостики</h2>
-        <p class="our-pets__text">Вони дуже чекають на знайомство з вами</p>
-    </div>
+  <div class="pets-container container">
+    <h2 class="our-pets__title">Наші хвостики</h2>
+    <h3 class="our-pets__text">Вони дуже чекають на знайомство з вами</h3>
 
     <ul class="our-pets__types-list">
-        <li><button class="pets-type__btn" data-id="">Всі</button></li>
-        <li><button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a1">Собаки</button></li>
-        <li><button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a2">Коти</button></li>
-        <li><button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a3">Кролики</button></li>
-        <li><button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a4">Гризуни</button></li>
-        <li><button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a5">Птахи</button></li>
-        <li><button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a6">Тварини з особливими потребами</button></li>
-        <li><button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a7">Терміново шукають дім</button></li>
+      <li><button class="pets-type__btn" data-id="">Всі</button></li>
+      <li>
+        <button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a1">
+          Собаки
+        </button>
+      </li>
+      <li>
+        <button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a2">
+          Коти
+        </button>
+      </li>
+      <li>
+        <button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a3">
+          Кролики
+        </button>
+      </li>
+      <li>
+        <button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a4">
+          Гризуни
+        </button>
+      </li>
+      <li>
+        <button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a5">
+          Птахи
+        </button>
+      </li>
+      <li>
+        <button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a6">
+          Тварини з особливими потребами
+        </button>
+      </li>
+      <li>
+        <button class="pets-type__btn" data-id="667ac6a4e4b0c8a2a7c1c1a7">
+          Терміново шукають дім
+        </button>
+      </li>
     </ul>
 
-    <ul class="pets-list">
-
-    </ul>
+    <ul class="pets-list"></ul>
 
     <div class="pet-list__btn-wrap">
-        <button type="button" class="pet-list__btn">Показати більше</button>
+      <button type="button" class="pet-list__btn">Показати більше</button>
     </div>
-
-</div>
-
-
+  </div>
 </section>
 
       <section class="about" id="about">
@@ -506,7 +525,7 @@
 
       <section class="stories" id="stories">
   <div class="container">
-    <h1 class="title-stories">Щасливі історії, що надихають</h1>
+    <h2 class="title-stories">Щасливі історії, що надихають</h2>
     <h2 class="subtitle-stories">
       Ці хвостики вже знайшли свій дім. Ваш майбутній друг теж чекає на вас
     </h2>
