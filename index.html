@@ -632,6 +632,7 @@
           name="name"
           id="name"
           placeholder="Андрій"
+          maxlength="32"
           required
         />
         <span class="order-input-error">Введіть Ваше ім’я</span>
@@ -643,8 +644,10 @@
           type="tel"
           name="phone"
           id="phone"
-          placeholder="380955559922"
-          pattern="^380\d{9}$"
+          pattern="[0-9]{12}"
+          maxlength="12"
+          inputmode="numeric"
+          placeholder="380951234567"
           required
         />
         <span class="order-input-error">Введіть дійсний номер телефону</span>
@@ -655,6 +658,7 @@
           class="order-form-textarea"
           name="comment"
           id="comment"
+          maxlength="500"
           placeholder="Напишіть ваш коментар"
         ></textarea>
       </div>
