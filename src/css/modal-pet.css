@@ -81,15 +81,8 @@
 
 /* #region Info section */
 .modal-pet-info {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.modal-pet-header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: block;
+    /* Removed flex setup */
 }
 
 .modal-pet-species {
@@ -97,6 +90,7 @@
     font-size: 12px;
     line-height: 1.5;
     color: #02060A;
+    margin-bottom: 8px;
 }
 
 .modal-pet-name {
@@ -106,11 +100,13 @@
     line-height: 1.2;
     letter-spacing: -0.01em;
     color: #02060A;
+    margin-bottom: 8px;
 }
 
 .modal-pet-meta {
     display: flex;
     gap: 16px;
+    margin-bottom: 24px;
 }
 
 .modal-pet-age,
@@ -124,17 +120,13 @@
 /* #endregion */
 
 /* #region Text Details */
-.modal-pet-block {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
 .modal-pet-subtitle {
     font-weight: 600;
     font-size: 14px;
     line-height: 1.5;
     color: #02060A;
+    margin-bottom: 8px;
+    display: block;
 }
 
 .modal-pet-subtitle-bold {
@@ -148,15 +140,12 @@
     font-size: 14px;
     line-height: 1.5;
     color: #02060A;
+    margin-bottom: 24px;
 }
 
 /* #endregion */
 
 /* #region Adopt Button */
-.modal-pet-adopt-wrap {
-    padding-top: 8px;
-}
-
 .modal-pet-adopt-btn {
     display: flex;
     justify-content: center;
@@ -164,6 +153,8 @@
     width: 100%;
     height: 45px;
     padding: 12px 24px;
+    margin-top: 8px;
+    /* Replacement for .modal-pet-adopt-wrap padding */
     background: #88765C;
     border: 1px solid #88765C;
     border-radius: 8px;
@@ -221,22 +212,6 @@
         flex: 1;
         min-width: 0;
     }
-
-    .modal-pet-block-desc {
-        order: 2;
-    }
-
-    .modal-pet-block-health {
-        order: 3;
-    }
-
-    .modal-pet-block-behavior {
-        order: 4;
-    }
-
-    .modal-pet-adopt-wrap {
-        order: 1;
-    }
 }
 
 /* #endregion */
@@ -283,13 +258,6 @@
     .modal-pet-adopt-btn {
         height: 48px;
         font-size: 16px;
-    }
-
-    .modal-pet-block-desc,
-    .modal-pet-block-health,
-    .modal-pet-block-behavior,
-    .modal-pet-adopt-wrap {
-        order: 0;
     }
 }
 
