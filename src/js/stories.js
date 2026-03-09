@@ -27,6 +27,9 @@ const storiesSwiper = new Swiper('.stories-swiper', {
  slidesPerGroup: 1,
   slidesPerView: 1,
   spaceBetween: 32,
+  keyboard: {
+  enabled: true,
+      },
 
   navigation: {
     nextEl: '#stories .btn-next',
@@ -36,23 +39,26 @@ const storiesSwiper = new Swiper('.stories-swiper', {
   pagination: {
     el: '#stories .stories-navigation .swiper-pagination',
     clickable: true,
-    dynamicBullets: true,
-    dynamicMainBullets: 5,
+    dynamicBullets: false
   },
   breakpoints: {
     768: {
-       slidesPerGroup: 2,
+      slidesPerGroup: 1,
       slidesPerView: 2,
+       pagination: {
+      dynamicBullets: true,
+      dynamicMainBullets: 5,
+    },
     },
     1440: {
-       slidesPerGroup: 2,
+       slidesPerGroup: 1,
       slidesPerView: 2,
       },
     },
 });
 
 showLoader();
-fetch(`${BASE_URL}${ANDROID_URL}`)
+fetch(`${BASE_URL}${ANDROID_URL}?limit=6`)
     .then(response => response.json())
     .then(data => {
         createFeedbackCard(data.feedbacks);
@@ -78,11 +84,6 @@ storiesSwiper.pagination.update();
     </svg>
   `.repeat(full);
 
-  // const halfStar = half ? `
-  //   <svg class="star star-half">
-  //     <use href="/img/icons.svg#star-half"></use>
-  //   </svg>
-  // ` : '';
 const halfStar = half
     ? `
       <span class="star-half" aria-hidden="true">
