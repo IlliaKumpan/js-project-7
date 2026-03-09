@@ -27,6 +27,9 @@ const storiesSwiper = new Swiper('.stories-swiper', {
  slidesPerGroup: 1,
   slidesPerView: 1,
   spaceBetween: 32,
+  keyboard: {
+  enabled: true,
+      },
 
   navigation: {
     nextEl: '#stories .btn-next',
@@ -41,8 +44,9 @@ const storiesSwiper = new Swiper('.stories-swiper', {
   },
   breakpoints: {
     768: {
-       slidesPerGroup: 2,
+      slidesPerGroup: 2,
       slidesPerView: 2,
+      
     },
     1440: {
        slidesPerGroup: 2,
