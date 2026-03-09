@@ -2,11 +2,16 @@ import axios from 'axios';
 import * as basicLightbox from 'basiclightbox';
 //import 'basiclightbox/dist/basicLightbox.min.css';
 
-
 const orderForm = document.querySelector('.order-form');
 const orderBackdrop = document.querySelector('.order-modal-overlay');
 const orderCloseBtn = document.querySelector('.order-close-btn');
 const orderSubmitBtn = document.querySelector('.order-submit-btn');
+
+const ERRORS = {
+  BAD_REQUEST: 'Bad request (invalid request params)',
+  PET_NOT_FOUND: 'Pet not found',
+  SERVER: 'Server error',
+};
 
 export function openOrderModal(animalId) {
   // Add animal id to order form data set
@@ -80,6 +85,15 @@ async function onOrderSubmit(event) {
     formData.comment = comment.value.trim();
   }
 
+  // Validate form
+  const validationError = validateOrderData(formData);
+
+  if (validationError) {
+    showToast(createErrorTemplate(validationError.message), 3000);
+    orderSubmitBtn.disabled = false;
+    return;
+  }
+
   try {
     const response = await axios.post(
       'https://paw-hut.b.goit.study/api/orders',
@@ -92,10 +106,37 @@ async function onOrderSubmit(event) {
 
     showToast(createSuccessTemplate(orderData), 5000);
   } catch (error) {
-    showToast(createErrorTemplate(error.message), 3000);
+    if (error.response?.status === 404) {
+      showToast(createErrorTemplate(ERRORS.PET_NOT_FOUND), 3000);
+    } else if (error.response?.status === 400) {
+      showToast(createErrorTemplate(ERRORS.BAD_REQUEST), 3000);
+    } else {
+      showToast(createErrorTemplate(ERRORS.SERVER), 3000);
+    }
   } finally {
     orderSubmitBtn.disabled = false;
   }
+}
+
+function validateOrderData({ name, phone, animalId, comment }) {
+  const nameValid = name && name.length <= 32;
+
+  const phonePattern = /^[0-9]{12}$/;
+  const phoneValid = phonePattern.test(phone);
+
+  const commentValid = !comment || comment.length <= 500;
+
+  const animalIdPattern = /^[a-f0-9]{24}$/i;
+  const animalIdValid = animalIdPattern.test(animalId);
+
+  if (!nameValid || !phoneValid || !commentValid || !animalIdValid) {
+    return {
+      status: 400,
+      message: ERRORS.BAD_REQUEST,
+    };
+  }
+
+  return null;
 }
 
 function showToast(message, timeout = 3000) {
