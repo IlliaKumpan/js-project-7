@@ -6,6 +6,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import icons from '../img/icons.svg';
 
 const BASE_URL = `https://paw-hut.b.goit.study`;
 const ANDROID_URL = `/api/feedbacks`;
@@ -73,24 +74,24 @@ storiesSwiper.pagination.update();
 
   const fullStars = `
     <svg class="star star-filled">
-      <use href="../img/icons.svg#star-filled"></use>
+      <use href="${icons}#star-filled"></use>
     </svg>
   `.repeat(full);
 
   // const halfStar = half ? `
   //   <svg class="star star-half">
-  //     <use href="../img/icons.svg#star-half"></use>
+  //     <use href="/img/icons.svg#star-half"></use>
   //   </svg>
   // ` : '';
 const halfStar = half
     ? `
       <span class="star-half" aria-hidden="true">
         <svg class="star star-outline">
-          <use href="../img/icons.svg#star-outline"></use>
+          <use href="${icons}#star-outline"></use>
         </svg>
         <span class="star-half-fill">
           <svg class="star star-filled">
-            <use href="../img/icons.svg#star-filled"></use>
+            <use href="${icons}#star-filled"></use>
           </svg>
         </span>
       </span>
@@ -98,7 +99,7 @@ const halfStar = half
     : '';
   const emptyStars = `
     <svg class="star star-outline">
-      <use href="../img/icons.svg#star-outline"></use>
+      <use href="${icons}#star-outline"></use>
     </svg>
   `.repeat(empty);
 
